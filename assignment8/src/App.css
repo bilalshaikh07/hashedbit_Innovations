@@ -1,0 +1,43 @@
+.fa-plus{
+  position: relative;
+  /* left: -20px; */
+  display: flex;
+  margin: 10px;
+}
+.inp{
+  display: flex;
+}
+input{
+  width: 96%;
+}
+h2{
+  text-align: center;
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li{
+  margin-top: 10px;
+  border: 2px solid rgb(8, 0, 255);
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+}
+
+
+li span {
+  float: right;
+  position: relative;
+  
+}
+
+button {
+  margin-top: 50px;
+  color: blue;
+  
+}

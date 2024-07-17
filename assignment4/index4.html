@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Styling Example</title>
+    <style>
+        .text-here {
+            margin: 20px;
+        }
+        .stylebt {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-here" id="text-container">This is some example text</div>
+
+    <input type="text" id="colorbox" placeholder="Enter color name or hex code">
+    <button id="colorchange">Change Color</button>
+
+    <br><br>
+
+    <input type="range" id="fontsize" min="10" max="100" value="55">
+
+    <br><br>
+
+    <button id="italic" class="stylebt">Italics</button>
+    <button id="underline" class="stylebt">Underline</button>
+    <button id="bold" class="stylebt">Bold</button>
+
+    <br><br>
+
+    <select id="list">
+        <option value="serif">Serif</option>
+        <option value="sans-serif">Sans-Serif</option>
+        <option value="monospace">Monospace</option>
+        <option value="cursive">Cursive</option>
+        <option value="fantasy">Fantasy</option>
+    </select>
+
+    <br><br>
+
+    <button id="getstyle">Get CSS</button>
+
+    <br><br>
+    <p id="css-props"></p>
+
+    <script>
+        // Function to change the text color
+        document.getElementById('colorchange').addEventListener('click', function() {
+            const color = document.getElementById('colorbox').value;
+            document.getElementById('text-container').style.color = color;
+        });
+
+        // Function to change the font size
+        document.getElementById('fontsize').addEventListener('input', function() {
+            const fontSize = this.value + 'px';
+            document.getElementById('text-container').style.fontSize = fontSize;
+        });
+
+        // Function to toggle italic style
+        document.getElementById('italic').addEventListener('click', function() {
+            const textContainer = document.getElementById('text-container');
+            if (textContainer.style.fontStyle === 'italic') {
+                textContainer.style.fontStyle = 'normal';
+            } else {
+                textContainer.style.fontStyle = 'italic';
+            }
+        });
+
+        // Function to toggle underline style
+        document.getElementById('underline').addEventListener('click', function() {
+            const textContainer = document.getElementById('text-container');
+            if (textContainer.style.textDecoration === 'underline') {
+                textContainer.style.textDecoration = 'none';
+            } else {
+                textContainer.style.textDecoration = 'underline';
+            }
+        });
+
+        // Function to toggle bold style
+        document.getElementById('bold').addEventListener('click', function() {
+            const textContainer = document.getElementById('text-container');
+            if (textContainer.style.fontWeight === 'bold') {
+                textContainer.style.fontWeight = 'normal';
+            } else {
+                textContainer.style.fontWeight = 'bold';
+            }
+        });
+
+        // Function to change the font family
+        document.getElementById('list').addEventListener('change', function() {
+            const fontFamily = this.value;
+            document.getElementById('text-container').style.fontFamily = fontFamily;
+        });
+
+        // Function to get the CSS properties
+        document.getElementById('getstyle').addEventListener('click', function() {
+            const textContainer = document.getElementById('text-container');
+            const styles = window.getComputedStyle(textContainer);
+
+            const cssProperties = `
+                color: ${styles.color};
+                font-size: ${styles.fontSize};
+                font-style: ${styles.fontStyle};
+                text-decoration: ${styles.textDecoration};
+                font-weight: ${styles.fontWeight};
+                font-family: ${styles.fontFamily};
+            `;
+            
+            document.getElementById('css-props').textContent = cssProperties;
+        });
+    </script>
+</body>
+</html>

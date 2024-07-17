@@ -1,0 +1,51 @@
+.movie-list .grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.movie-list .movie-item {
+  border: 1px solid #ccc;
+  padding: 16px;
+  text-align: center;
+}
+
+.movie-list .movie-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.movie-details img {
+  max-width: 100%;
+  height: auto;
+}
+
+.booking-form form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+.booking-form label {
+  margin-top: 10px;
+}
+
+.booking-form input {
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.booking-form button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.booking-confirmation {
+  text-align: center;
+  padding: 20px;
+}
